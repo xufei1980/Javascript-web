@@ -1,0 +1,43 @@
+body,div,ul,li{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+    font-size: 14px;
+}
+ul,li{
+    list-style: none;
+}
+#tab{
+    margin: 10px auto 0;
+    width: 500px;
+}
+#tab ul{
+     position: relative;
+    border-top: 2px;
+}
+#tab ul li{
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #9ad0ff;
+    cursor: pointer;
+}
+#tab ul li.select{
+    border-bottom: none;
+    background: #4781de;
+}
+#tab div{
+    display: none;
+    clear: both;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid #e00536;
+}
+#tab div.select{
+    display: block;
+
+}
