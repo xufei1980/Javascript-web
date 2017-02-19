@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body,div,ul,li{
+            margin: 0;
+            padding: 0;
+            font-family: 微软雅黑;
+            font-size: 12px;
+
+        }
+        ul,li{
+            list-style: none;
+        }
+       #list{
+           margin: 10px auto;
+           padding: 10px;
+           width: 500px;
+           border: 1px solid #dddddd;
+           border-radius: 10px;
+           background: -webkit-gradient(top,left, #9ad0ff, #4781de,#611ADE);
+       }
+        #list li{
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .c1{
+            background: #611ADE;
+        }
+         .c2{
+             background: #9ad0ff;
+         }
+        .c3{
+            background: #e00536;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="list">
+    <ul>
+        <li>盐焗鹌鹑蛋吃过就忘不了</li>
+        <li>香甜软糯的客家大笼粄</li>
+        <li>点拨的智慧庞村三中吴月红</li>
+        <li>游泳可导致中耳炎吗？</li>
+        <li>盐焗鹌鹑蛋吃过就忘不了</li>
+        <li>香甜软糯的客家大笼粄</li>
+        <li>点拨的智慧庞村三中吴月红</li>
+        <li>游泳可导致中耳炎吗？</li> <li>盐焗鹌鹑蛋吃过就忘不了</li>
+        <li>香甜软糯的客家大笼粄</li>
+        <li>点拨的智慧庞村三中吴月红</li>
+        <li>游泳可导致中耳炎吗？</li>
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    var oList=document.getElementById("list");
+    var oLis=oList.getElementsByTagName("li");
+    for(var i=0;i<oLis.length;i++){
+        var oLi=oLis[i];
+        (i%2===0)?(oLi.className="c1",oLi.currentbg="c1"):(oLi.className="c2",oLi.currentbg="c2");
+        oLi.onmousemove=function () {
+            this.className="c3";
+        }
+        oLi.onmouseout=function () {
+            var oldVal=this.currentbg;
+            this.className=oldVal;
+        }
+    }
+
+
+</script>
+</body>
+</html>
