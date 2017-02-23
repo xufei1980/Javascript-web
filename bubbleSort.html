@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>bubbleSort</title>
+</head>
+<body>
+<script type="text/javascript">
+    var ary=[8,7,6,5,4,3,2,1];
+    function bubbleSort(ary) {
+        var flag=false;
+        for (var i=0;i<ary.length-1;i++){
+            for(var j=0;j<ary.length-1-i;j++){
+                if(ary[j]>ary[j+1]){
+                    flag=true;
+                    ary[j]=ary[j]+ary[j+1];
+                    ary[j+1]=ary[j]-ary[j+1];
+                    ary[j]=ary[j]-ary[j+1];
+
+                }
+
+            }
+            if(flag){
+                flag=false;
+            }else{
+                return ary;
+            }
+        }
+        return ary;
+    }
+    var res=bubbleSort(ary);
+    console.log(res);
+</script>
+</body>
+</html>
