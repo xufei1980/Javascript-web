@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>identifying code</title>
+    <style type="text/css">
+        body,div{
+            margin: 0;
+            padding: 0;
+            font-family:"Angsana New" ;
+            font-size: 26px;
+            -webkit-user-select: none;
+        }
+        #code{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width:100px;
+            height: 50px;
+            margin-top: -25px;
+            margin-left: -50px;
+            line-height:50px;
+            text-align: center;
+            border: solid  2px #dd1622;
+            border-radius: 5px;
+            cursor: pointer;
+            letter-spacing: 3px;
+
+        }
+        #changAnther{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width:200px;
+            height: 50px;
+            margin-top: -25px;
+            margin-left: 75px;
+            line-height:50px;
+            text-align: center;
+            border: solid  2px #6627dd;
+            background: #32d3dd;
+            font-size:16px ;
+            border-radius: 5px;
+            cursor: pointer;
+
+
+        }
+    </style>
+</head>
+<body>
+<div id="code"></div>
+<div id="changAnther">Change another Code</div>
+<script type="text/javascript">
+    var codestr="abcdefghighlmnopqrstuvwxyzABCDEFGHIGHLMNOPQRSTUVWXYZ0123456789";
+    function getRandom(m,n) {
+        m=Number(m);
+        n=Number(n);
+        if(isNaN(m)||isNaN(n)){
+            return Math.random();
+        }
+        if(m>n){
+            m=m+n;
+            n=m-n;
+            m=m-n;
+        }
+        return Math.round(Math.random()*(n-m)+m);
+
+    }
+    function getCode() {
+        var str="";
+        for(var i=0;i<4;i++){
+            var ran=getRandom(0,61);
+            str+=codestr.charAt(ran);
+        }
+        return str;
+
+    }
+    var oDiv=document.getElementById("code");
+    var oDiv2=document.getElementById("changAnther");
+    var ranCode=getCode();
+    oDiv.innerHTML=ranCode;
+    oDiv.onclick=function () {
+        var ranCode=getCode();
+        oDiv.innerHTML=ranCode;
+    }
+    oDiv2.onclick=function () {
+        var ranCode=getCode();
+        oDiv.innerHTML=ranCode;
+
+    }
+
+</script>
+</body>
+</html>
