@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>icon font</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{
+            list-style: none;
+
+        }
+        li{
+            height:31px;
+            line-height: 31px;
+            overflow: hidden;
+            border-bottom: 1px solid #dedede;
+        }
+        li i{
+            margin: 2px 10px 0 0;
+            display: inline;
+            width: 30px;
+            height: 24px;
+            float: left;
+            color: #9142dd;
+        }
+        .cat{
+            width: 150px;
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+        }
+        @font-face {
+            font-family: "icomoon";
+            src:url("icomoon.eot") ;
+            src:url("icomoon.eot?#iefix") format("embedded-opentype")
+            ,url("icomoon.woff") format("woff")
+            ,url("icomoon.ttf") format("turetype")
+            ,url("icomoon.svg") format("svg");
+            font-weight: normal;
+            font-style: normal;
+        }
+        .fonticon{
+            font-family: icomoon;
+            font-style: normal;
+            font-weight: normal;
+            font-size:25px;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .cat1:before{
+            content: "\e105";
+        }
+    </style>
+</head>
+<body>
+<div class="cat">
+    <ul>
+        <li >
+            <i class="fonticon">&#xe002</i>
+
+        </li>
+        <li >
+            <i class="fonticon cat1"></i>
+
+        </li>
+        <li >
+            <i class="fonticon">&#xe087</i>
+
+        </li>
+        <li >
+            <i class="fonticon">&#xe102</i>
+
+        </li>
+        <li >
+            <i class="fonticon">&#xe109</i>
+
+        </li>
+
+    </ul>
+</div>
+</body>
+</html>
