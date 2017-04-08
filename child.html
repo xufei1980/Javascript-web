@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get all child node</title>
+</head>
+<body>
+<div id="div1">
+    <div></div>
+    <div></div>
+    <div>
+        <p></p>
+        <p></p>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <ul>
+    </ul>
+</div>
+<script type="text/javascript">
+    var oDiv=document.getElementById("div1");
+    function children(curEle,tagName) {
+        var ary=[];
+        if(/MSIE (6|7|8)/i.test(navigator.userAgent)) {
+            var nodeList = curEle.childNodes;
+            for (i = 0, len = nodeList.length; i < len; i++) {
+                var curNode = nodeList[i];
+                if (curNode.nodeType === 1) {
+                    ary[ary.length] = curNode;
+                }
+
+            }
+        }else{
+            ary=Array.prototype.slice.call(curEle.children);
+        }
+        if(typeof tagName==="string"){
+            for(k=0;k<ary.length;k++){
+                var curEleNode=ary[k];
+                if(curEleNode.nodeName.toLowerCase()!==tagName.toLowerCase()){
+                    ary.splice(k,1);
+                    k--;
+                }
+            }
+        }
+        return ary;
+    }
+    console.log(children(oDiv,"ul"));
+</script>
+</body>
+</html>
