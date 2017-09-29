@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>magnifier</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            margin:50px 50px;
+            width: 350px;
+            height: 350px;
+            box-shadow: 3px 3px 10px 0 #8e8e8e;
+
+
+        }
+        #mark{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 175px;
+            height: 175px;
+            background: #000000;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            cursor:move;
+
+        }
+        #boxright{
+            display:none;
+            position: absolute;
+            top:50px;
+            left: 410px;
+            width: 350px;
+            height: 350px;
+            overflow: hidden;
+        }
+        #boxright img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="../img/iphone.jpg" >
+    <div id="mark"></div>
+</div>
+<div id="boxright">
+    <img id="imge"  src="../img/iphone_big.jpg" >
+</div>
+<script type="text/javascript">
+    var box=document.getElementById("box"),mark=document.getElementById("mark"),
+        boxright=document.getElementById("boxright");
+    function setPosition(e) {
+        var top=0,left=0,minL=0,maxL=0,minTop=0,maxTop=0,
+           tempT=0,tempL=0;
+
+        left=e.clientX-box.offsetLeft-mark.offsetLeft/2;
+        top=e.clientY-box.offsetTop-mark.offsetHeight/2;
+        maxL=box.offsetWidth-mark.offsetWidth;
+
+        maxTop=box.offsetHeight-mark.offsetHeight;
+        if(left<=0){
+            mark.style.left=minL+"px";
+            tempL=minL;
+        }else if(left>=maxL){
+            mark.style.left=maxL+"px";
+            tempL=maxL;
+        }else{
+            mark.style.left=left+"px";
+            tempL=left;
+        }
+
+        if(top<=0){
+            mark.style.top=minTop+"px";
+            tempT=minTop;
+        }else if(top>=maxTop){
+            mark.style.top=maxTop+"px";
+            tempT=maxTop;
+        }else{
+            mark.style.top=top+"px";
+            tempT=top;
+        }
+      var oImg=document.getElementById("imge");
+      oImg.style.left=-tempL*2+"px";
+      oImg.style.top=-tempT*2+"px";
+
+    }
+    box.onmouseenter=function (e) {
+
+        e=e||window.event;
+        mark.style.display="block";
+        setPosition(e);
+        boxright.style.display="block"
+    }
+    box.onmousemove=function (e) {
+
+        e=e||window.event;
+        mark.style.display="block";
+        setPosition(e);
+    }
+    box.onmouseleave=function () {
+        mark.style.display="none";
+        boxright.style.display="none";
+
+    }
+</script>
+</body>
+</html>
